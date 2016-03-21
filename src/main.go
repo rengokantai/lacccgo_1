@@ -21,17 +21,23 @@ func main(){
 		panic(err)
 	}
 
+	var atTotal,counter float64
+
 	for i,row:=range rows{
 		//fmt.Println(row)
 		if i !=0 &&i<5{
-			fmt.Println(row[0])
-			fmt.Printf("%T ",row[2])
+			//fmt.Println(row[0])
+			//fmt.Printf("%T ",row[2])
 			at,_:=strconv.ParseFloat(row[1],64)
-			fmt.Printf("%T",at)
+			//fmt.Printf("%T",at)
+
+			atTotal+=at
+			counter++
 
 
 		}
 	}
+	fmt.Println(atTotal/counter)
 
 	//fmt.Print(f)
 }
