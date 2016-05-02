@@ -4,6 +4,7 @@ import (
 	"os"
 	"encoding/csv"
 	"strconv"
+	"time"
 )
 
 func main(){
@@ -20,7 +21,7 @@ func main(){
 	if err!=nil{
 		panic(err)
 	}
-
+	start:=time.Now()
 	//var atTotal,bmTotal, wsTotal,counter float64
 
 //	for i,row:=range rows{
@@ -45,7 +46,9 @@ func main(){
 	fmt.Println("Mean Air Temp", mean(rows,1))
 	fmt.Println("Mean Barometric",mean(rows,2))
 	fmt.Println("Mean Wind Speed",mean(rows,7))
-
+	end:=time.Now()
+	delta:=end.Sub(start)
+	fmt.Printf("Unabstracted: %s\n",delta)
 	//fmt.Print(f)
 }
 
