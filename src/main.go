@@ -18,7 +18,7 @@ func main(){
 	reader:=csv.NewReader(f)
 	reader.Comma = '\t'
 	reader.TrimLeadingSpace = true
-	rows,err:=reader.ReadAll()
+	rows,err:=reader.ReadAll()   //compare
 	if err!=nil{
 		panic(err)
 	}
