@@ -17,7 +17,7 @@ func main() {
 	page,err:=ioutil.ReadAll(res.Body)  //compare to main.go line 21
 	res.Body.Close()
 	if err!=nil{
-		log.Fatal(err)
+		panic(err)
 	}
 	fmt.Printf("%s",page)  //original
 	fmt.Printf("%v",page)   //print bytes, like 111 101 111

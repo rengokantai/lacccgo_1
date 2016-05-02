@@ -10,4 +10,9 @@ strconv.ParseFloat(string,64)
 ```
 
 ######17
-stop at 3:00
+format all code from current dict to all children dicts
+```
+go fmt ./...
+go get -u github.com/golang/lint/golint
+golint ./...
+```
