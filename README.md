@@ -8,3 +8,6 @@ csv.NewReader(f)
 ```
 strconv.ParseFloat(string,64)
 ```
+
+######17
+stop at 3:00

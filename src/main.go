@@ -21,7 +21,7 @@ func main(){
 		panic(err)
 	}
 
-	var atTotal,counter float64
+	var atTotal,bmTotal, wsTotal,counter float64
 
 	for i,row:=range rows{
 		//fmt.Println(row)
@@ -29,15 +29,22 @@ func main(){
 			//fmt.Println(row[0])
 			//fmt.Printf("%T ",row[2])
 			at,_:=strconv.ParseFloat(row[1],64)
+			bm,_:=strconv.ParseFloat(row[2],64)
+			ws,_:=strconv.ParseFloat(row[7],64)
 			//fmt.Printf("%T",at)
 
 			atTotal+=at
+			bmTotal+=bm
+			wsTotal+=ws
 			counter++
 
 
 		}
 	}
-	fmt.Println(atTotal/counter)
+	fmt.Println("Total Records",counter)
+	fmt.Println("Mean Air Temp", atTotal/counter)
+	fmt.Println("Mean Barometric",bmTotal/counter)
+	fmt.Println("Mean Wind Speed",wsTotal/counter)
 
 	//fmt.Print(f)
 }
