@@ -5,6 +5,7 @@ import (
 	"encoding/csv"
 	"strconv"
 	"time"
+	"sort"
 )
 
 func main(){
@@ -50,6 +51,11 @@ func main(){
 	delta:=end.Sub(start)
 	fmt.Printf("Unabstracted: %s\n",delta)
 	//fmt.Print(f)
+
+	fmt.Println("Total Records",len(rows)-1)
+	fmt.Println("Mean Air Temp", median(rows,1))
+	fmt.Println("Mean Barometric",median(rows,2))
+	fmt.Println("Mean Wind Speed",median(rows,7))
 }
 
 
@@ -62,4 +68,24 @@ func mean(rows[][] string, idx int) float64{
 		}
 	}
 	return  total/float64(len(rows)-1)  //remove header line
+}
+
+func median(rows[][] string, idx int)float64{
+	var sorted[] float64
+	for i,row:=range rows{
+		if i!=0 {
+			value,_:=strconv.ParseFloat(row[idx],64)
+			sorted = append(sorted, value)
+		}
+	}
+	sort.Float64s(sorted)
+
+	if len(sorted)%2==0{ //even elem
+		middle:=len(sorted)/2
+		higher:=sorted[middle]
+		lower:=sorted[middle-1]
+		return (higher+lower)/2
+	}
+	middle:=len(sorted)/2
+	return sorted[middle]
 }
